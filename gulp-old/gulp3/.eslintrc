@@ -1,0 +1,14 @@
+{
+  "env": {
+    "browser": true,// ブラウザのグローバル変数を利用可能にする
+    "node": true,// Node.jsのグローバル変数とNode.js特有のルールを追加する
+    "jquery": true,// jQueryのグローバル変数を有効にする
+    "es6": true// modulesを除くES6の仕様を有効にする
+  },
+
+  "globals": {
+  },
+
+  "rules": {
+  }
+}

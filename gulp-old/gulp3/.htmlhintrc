@@ -1,0 +1,72 @@
+{
+
+  "#1": "タグは小文字のみ許可",
+  "tagname-lowercase": true,
+
+  "#2": "属性は小文字のみ許可",
+  "attr-lowercase": true,
+
+  "#3": "属性値はダブルクォートで囲う",
+  "attr-value-double-quotes": true,
+
+  "#4": "値の無い属性を許可しない",
+  "attr-value-not-empty": false,
+
+  "#5": "属性が重複している場合のエラー",
+  "attr-no-duplication": true,
+
+  "#6": "DOCTYPEが一行目にない場合のエラー",
+  "doctype-first": false,
+
+  "#7": "ネスト構造が不正な場合のエラー",
+  "tag-pair": true,
+
+  "#8": "「<br />」記法のみ",
+  "tag-self-close": false,
+
+  "#9": "タグ文字を文字列として使う場合は実体参照を用いる",
+  "spec-char-escape": true,
+
+  "#10": "ページ内のID重複",
+  "id-unique": true,
+
+  "#11": "src属性が空の場合",
+  "src-not-empty": true,
+
+  "#12": "<title>タグを必須とする",
+  "title-require": true,
+
+  "#13": "<head>内に<script>を設置してはならない",
+  "head-script-disabled": false,
+
+  "#14": "<img>にはaltを必須とする",
+  "alt-require": true,
+
+  "#15": "HTML5宣言を必須とする",
+  "doctype-html5": false,
+
+  "#16": "idとclassの記法ルール",
+  "id-class-value": false,
+
+  "#17": "<style>タグを設置してはならない",
+  "style-disabled": false,
+
+  "#18": "インラインスタイルを禁止する",
+  "inline-style-disabled": false,
+
+  "#19": "インラインスクリプトを禁止する",
+  "inline-script-disabled": true,
+
+  "#20": "インデントにタブとスペースが混在している場合に警告する",
+  "space-tab-mixed-disabled": "space2",
+
+  "#21": "id、class名に「ad」が含まれている場合に警告する（adblockからブロッキングされる恐れがある）",
+  "id-class-ad-disabled": true,
+
+  "#22": "パスは絶対パスか相対パスか",
+  "href-abs-or-rel": false,
+
+  "#23": "属性内の安全でない文字列について警告",
+  "attr-unsafe-chars": true
+
+}

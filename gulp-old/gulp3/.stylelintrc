@@ -1,0 +1,77 @@
+{
+  rules: {
+
+    "block-no-empty": [true, {
+      "message": "空のルールセットを削除してください"
+    }],
+
+    "block-opening-brace-newline-after": ["always-multi-line", {
+      "message": "複数行ルールセットの開き括弧後で改行します"
+    }],
+
+    "block-opening-brace-space-after": ["always-single-line", {
+      "message": "単一行ルールセットの開き括弧後にスペースを一つ挿入します"
+    }],
+
+    "block-closing-brace-newline-after": ["always", {
+      "message": "閉じ括弧後に改行を挿入します"
+    }],
+
+    "block-closing-brace-newline-before": ["always-multi-line", {
+      "message": "複数行ルールセットの閉じ括弧前に改行を挿入します"
+    }],
+
+    "comment-no-empty": [true, {
+      "message": "空のコメントは削除してください"
+    }],
+
+    "comment-whitespace-inside": ["always", {
+      "message": "コメントの内側にスペースを1個挿入します"
+    }],
+
+    "declaration-bang-space-after": ["never", {
+      "message": "!importantの記号後ろのスペースを削除してください"
+    }],
+
+    "declaration-block-semicolon-newline-after": ["always-multi-line", {
+      "message": "複数行ルールセットのセミコロン後ろで改行します"
+    }],
+
+    "declaration-block-semicolon-space-before": ["never", {
+      "message": "セミコロン前にスペースを挿入します"
+    }],
+
+    "declaration-block-trailing-semicolon": ["always", {
+      "message": "ルールセット最後のプロパティのセミコロンを省略せず記述します"
+    }],
+
+    "declaration-colon-space-after": ["always", {
+      "message": "ルールセットコロンの後にスペースを一つ挿入します"
+    }],
+
+    "declaration-colon-space-before": ["never", {
+      "message": "ルールセットコロンの前のスペースを削除してください"
+    }],
+
+    "declaration-block-no-duplicate-properties": [true, {"ignore": ["consecutive-duplicates-with-different-values"],
+      "message": "プロパティが重複しています（プロパティ値が異なる場合はレガシーブラウザフォールバックと見なして無視します）"
+    }],
+
+    "color-hex-case": ["lower", {
+      "message": "16進数カラーコードは小文字で記述します"
+    }],
+
+    "color-hex-length": ["short", {
+      "message": "16進数カラーコードを省略できる場合にはショートハンドで記述します（#ffffff→#fff）"
+    }],
+
+    "color-no-invalid-hex": [true, {
+      "message": "16進数カラーコードの値が不正です"
+    }],
+
+    "custom-property-empty-line-before": ["always", { "except": ["after-custom-property", "first-nested"], "ignore": ["after-comment", "inside-single-line-block"],
+      "message": "カスタムプロパティ前に空行を挿入します（連続した二行目以降は空行不要、ルールセット一行目の場合は空行不要、コメントの次の行は例外、単一行ルールセットは例外）"
+    }],
+
+  }
+}

@@ -1,0 +1,66 @@
+{
+
+  "#common1": "インデント文字",
+  "indent_char": " ",
+
+  "#common2": "インデントサイズ",
+  "indent_size": 2,
+
+  "#common3": "Tabでインデントする",
+  "indent_with_tabs": false,
+
+  "#common4": "改行コード",
+  "eol": "\n",
+
+  "#common5": "EOFに空行を挿入",
+  "end_with_newline": true,
+
+  "#common6": "空行を許可する",
+  "preserve_newlines": true,
+
+  "#common7": "許可する最大空行数",
+  "max_preserve_newlines": 2,
+
+  "html": {
+
+    "#html1": "許可する最大空行数",
+    "max_preserve_newlines": 1,
+
+    "#html2": "<head>、<body>タグをインデントする",
+    "indent_inner_html": true,
+
+    "#html3": "終了タグの後に空白行を挿入する要素",
+    "extra_liners": [],
+
+    "#html4": "整形しないタグ",
+    "content_unformatted": ["style", "script", "pre"]
+
+  },
+
+  "js": {
+
+    "#js1": "式スペース「if (□a == b□)」",
+    "space_in_paren": false,
+
+    "#js2": "式スペース「if□(a == b)」",
+    "space_before_conditional": false,
+
+    "#js3": "無名関数スペース「function□()」",
+    "space_after_anon_function": false,
+
+    "#js4": "「{}」のインデント書式",
+    "brace_style": "none",
+
+    "#js5": "ブロックチェーン書式",
+    "break_chained_methods": false,
+    "unindent_chained_methods": false,
+
+    "#js6": "区切りカンマを行頭に置く",
+    "comma_first": false,
+
+    "#js7": "jslint準拠",
+    "jslint_happy": false
+
+  }
+
+}

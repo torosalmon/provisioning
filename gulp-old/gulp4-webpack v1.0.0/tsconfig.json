@@ -1,0 +1,14 @@
+{
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/venders/**"],
+  "compilerOptions": {
+    "strict": true,
+    "target": "es5",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "checkJs": true,
+    "sourceMap": true,
+    "esModuleInterop": true
+  }
+}
