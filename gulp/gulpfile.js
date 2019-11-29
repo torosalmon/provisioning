@@ -15,10 +15,12 @@
 // プロジェクトディレクトリ
 // ========================
 
-// ソースディレクトリ
-const srcDir = `src`
 // 出力ディレクトリ
 const distDir = `dist`
+// ソースディレクトリ
+const srcDir = `src`
+// プロジェクトルートディレクトリ
+const projectRootDir = `/`
 
 // ==============
 // ローカルサーバ
@@ -30,6 +32,9 @@ const localServerEnable = true
 const localServerPort = 3000
 // ライブリロードを利用する
 const localServerLiveReloadEnable = true
+// 起動ブラウザ
+// chrome, firefox
+const localServerBrowser = [`chrome`]
 
 // ==================
 // ビルド対象ファイル
@@ -539,11 +544,19 @@ const copy = cb => {
 const localServer = cb => {
   if (localServerEnable) {
     browserSync.init({
+      browser: localServerBrowser,
       server: {
-        baseDir: `${distDir}`
+        baseDir: distDir
       },
       port: localServerPort,
-      watch: localServerLiveReloadEnable
+      startPath: projectRootDir,
+      watch: localServerLiveReloadEnable,
+      ghostMode: {
+        clicks: true,
+        forms: true,
+        location: true,
+        scroll: true
+      }
     })
   }
 
