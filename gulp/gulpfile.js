@@ -1,7 +1,7 @@
 /*
  * =============================================================================
  * [Gulp & webpack]
- * @update: 2019-11-27
+ * @update: 2019-11-29
  * @author: torosalmon
  * @twitter: https://twitter.com/trs_torosalmon
  * =============================================================================
@@ -395,6 +395,7 @@ const buildWebpack = cb => {
                           '@babel/preset-env',
                           {
                             modules: false,
+                            corejs: 3,
                             useBuiltIns: 'usage'
                           }
                         ]
@@ -419,6 +420,7 @@ const buildWebpack = cb => {
                           '@babel/preset-env',
                           {
                             modules: false,
+                            corejs: 3,
                             useBuiltIns: 'usage'
                           }
                         ]
