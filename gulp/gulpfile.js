@@ -33,8 +33,10 @@ const localServerPort = 3000
 // ライブリロードを利用する
 const localServerLiveReloadEnable = true
 // 起動ブラウザ
-// chrome, firefox
-const localServerBrowser = [`chrome`]
+const localServerBrowser = [
+  `chrome`
+  // `firefox`
+]
 
 // ==================
 // ビルド対象ファイル
