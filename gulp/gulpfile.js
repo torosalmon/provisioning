@@ -319,15 +319,6 @@ const buildSass = cb => {
   })
     .pipe(plumber())
 
-    // ベンダープレフィクス付与
-    .pipe(
-      postcss([
-        autoprefixer({
-          grid: true // display: grid;のIEサポート
-        })
-      ])
-    )
-
     // Sass
     .pipe(
       gulpIf(
@@ -349,6 +340,15 @@ const buildSass = cb => {
           })
         })
       )
+    )
+
+    // ベンダープレフィクス付与
+    .pipe(
+      postcss([
+        autoprefixer({
+          grid: true // display: grid;のIEサポート
+        })
+      ])
     )
 
     .pipe(dest(distDir))
