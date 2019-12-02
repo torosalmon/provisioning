@@ -20,7 +20,7 @@ const distDir = `dist`
 // ソースディレクトリ
 const srcDir = `src`
 // プロジェクトルートディレクトリ
-const projectRootDir = `/`
+const projectRootDir = ``
 
 // ==============
 // ローカルサーバ
@@ -551,7 +551,7 @@ const localServer = cb => {
         baseDir: distDir
       },
       port: localServerPort,
-      startPath: projectRootDir,
+      startPath: `/${projectRootDir}`,
       watch: localServerLiveReloadEnable,
       ghostMode: {
         clicks: true,
