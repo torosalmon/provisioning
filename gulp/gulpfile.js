@@ -64,7 +64,7 @@ const fileJavaScriptTypeScript = [
   `${srcDir}/**/!(_)*.js`,
   `${srcDir}/**/!(_)*.ts`,
   `!${srcDir}/**/*.min.js`, // [*.min.js]を除外
-  `!${srcDir}/**/venders/*.js` //  [/venders/]以下を除外
+  `!${srcDir}/**/venders/*.js` // [/venders/]以下を除外
 ]
 
 // JSON
