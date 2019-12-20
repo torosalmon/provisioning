@@ -42,7 +42,7 @@ module.exports = {
       {
         'singleQuote': true,
         'semi': false,
-        'printWidth': false
+        'printWidth': 9999
       }
     ]
   },
