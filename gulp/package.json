@@ -24,8 +24,8 @@
     "android >= 4.4"
   ],
   "engines": {
-    "node": "^12.13.1",
-    "npm": "^6.12.1"
+    "node": "^12.14.0",
+    "npm": "^6.13.4"
   },
   "dependencies": {},
   "devDependencies": {
