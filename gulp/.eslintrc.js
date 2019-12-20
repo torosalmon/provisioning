@@ -3,15 +3,15 @@ module.exports = {
   // 制作環境の定義
   env: {
     browser: true, // ブラウザ実行コードの検証（DOM API等）
-    es6: true, // ES6構文の検証
     node: true, // Node.jsコードの検証（require等）
+    es6: true // ES6構文の検証
   },
 
   // 検証オプション
   parserOptions: {
-    ecmaVersion: 2018, // [env.es6]バージョン詳細指定
+    parser: 'babel-eslint', // Babel
     sourceType: 'module', // [env.es6]に[ES Modules]の検証を追加
-    parser: 'babel-eslint' // Babel
+    ecmaVersion: 2018 // [env.es6]バージョン詳細指定
   },
 
   // パーサー
@@ -41,7 +41,8 @@ module.exports = {
       'error',
       {
         'singleQuote': true,
-        'semi': false
+        'semi': false,
+        'printWidth': false
       }
     ]
   },
