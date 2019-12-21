@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
 
   // 制作環境の定義
   env: {
@@ -17,32 +18,42 @@ module.exports = {
   // パーサー
   parser: '@typescript-eslint/parser',
 
-  // プラグイン
-  plugins: [
-    '@typescript-eslint',
-    'prettier'
-  ],
-
   // ルールセット
   extends: [
+    'standard', // JavaScript Standard Style: https://standardjs.com/
+    'prettier',
+
     // TypeScript
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:prettier/recommended',
-    'prettier/@typescript-eslint',
+    'prettier/@typescript-eslint'
+  ],
 
-    'standard', // JavaScript Standard Style: https://standardjs.com/
-    'prettier'
+  // プラグイン
+  plugins: [
+    'prettier',
+    '@typescript-eslint'
   ],
 
   // プロジェクトルール定義
   rules: {
+    // 未定義要素の参照
+    'no-use-before-define': [
+      'error',
+      {
+        'variables': false,
+        'functions': false,
+        'classes': false
+      }
+    ],
+
+    // Prettierルール
     'prettier/prettier': [
       'error',
       {
-        'singleQuote': true,
         'semi': false,
-        'printWidth': 9999
+        'singleQuote': true
       }
     ]
   },
@@ -50,8 +61,6 @@ module.exports = {
   // グローバル変数定義
   globals: {
     '$': 'readonly', // jQuery
-    'Atomics': 'readonly',
     'SharedArrayBuffer': 'readonly' // WebGL
   }
-
 }
