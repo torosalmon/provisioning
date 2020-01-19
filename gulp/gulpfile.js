@@ -509,7 +509,7 @@ const buildImg = cb => {
         imagemin([
           imagemin.svgo(),
           imagemin.optipng(),
-          imagemin.jpegtran({
+          imagemin.mozjpeg({
             quality: 50,
             progressive: true
           }),
