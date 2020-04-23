@@ -1,25 +1,49 @@
 module.exports = {
-  configBasedir: './',
 
-  // ルールセット
+  // ==================
+  // 定義済ルールセット
+  // ==================
+
   extends: [
-    './node_modules/prettier-stylelint/config.js',
-    'stylelint-config-standard',
+    // SCSS標準ルール
     'stylelint-config-recommended-scss',
+
+    // CSS標準ルール
+    'stylelint-config-standard',
+
+    // プロパティ記述順序ルール
     'stylelint-config-recess-order'
   ],
 
+  // ==========
   // プラグイン
+  // ==========
+
   plugins: [
-    'stylelint-scss',
+    // display値によって無効化されてしまうプロパティの検出
     'stylelint-declaration-block-no-ignored-properties'
   ],
 
+  // ======================
   // プロジェクトルール定義
+  // ======================
+
   rules: {
+    // @から始まる記述への警告
     'at-rule-no-unknown': null,
-    'scss/at-rule-no-unknown': true,
+
+    // @から始まる記述への警告（SCSS）
+    "scss/at-rule-no-unknown": [
+      true, {
+        // @use, @forward構文の使用を許可
+        ignoreAtRules: ['use', 'forward']
+      }
+    ],
+
+    // 重複したセレクタの検出
     'no-duplicate-selectors': null,
-    'no-descending-specificity': null
+
+    // display値によって無効化されてしまうプロパティの検出
+    'plugin/declaration-block-no-ignored-properties': true
   }
 }

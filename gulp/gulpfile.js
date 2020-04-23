@@ -16,11 +16,11 @@
 // ========================
 
 // 出力ディレクトリ
-const distDir = `dist`
+const distDir = 'dist'
 // ソースディレクトリ
-const srcDir = `src`
+const srcDir = 'src'
 // プロジェクトルートディレクトリ
-const projectRootDir = ``
+const projectRootDir = ''
 
 // ==============
 // ローカルサーバ
@@ -34,7 +34,7 @@ const localServerPort = 3000
 const localServerLiveReloadEnable = true
 // 起動ブラウザ
 const localServerBrowser = [
-  `chrome`
+  'chrome'
   // `firefox`
 ]
 
@@ -131,74 +131,74 @@ Array.prototype.push.apply(fileCopy, fileIgnore)
 //  * parallel: タスクの非同期実行
 //  * watch: ファイル監視
 //  * lastRun: 差分ビルド
-const { src, dest, series, parallel, watch, lastRun } = require(`gulp`)
+const { src, dest, series, parallel, watch, lastRun } = require('gulp')
 // ファイル削除
-const del = require(`del`)
+const del = require('del')
 // タスクエラー発生時に常駐を停止させない
-const plumber = require(`gulp-plumber`)
+const plumber = require('gulp-plumber')
 // Gulpタスク内if文サポート
-const gulpIf = require(`gulp-if`)
+const gulpIf = require('gulp-if')
 // ローカルサーバー
-const browserSync = require(`browser-sync`).create()
+const browserSync = require('browser-sync').create()
 
 // ===========
 // webpack連携
 // ===========
 
 // webpack
-const webpack = require(`webpack`)
+const webpack = require('webpack')
 // Gulpからwebpackを呼び出す
-const webpackStream = require(`webpack-stream`)
+const webpackStream = require('webpack-stream')
 // ビニールファイルに任意のチャンク名を付加
-const vinylNamed = require(`vinyl-named`)
+const vinylNamed = require('vinyl-named')
 
 // ====
 // HTML
 // ====
 
 // HTML minify
-const htmlmin = require(`gulp-htmlmin`)
+const htmlmin = require('gulp-htmlmin')
 // Pug
-const pug = require(`gulp-pug`)
+const pug = require('gulp-pug')
 
 // ===
 // CSS
 // ===
 
 // Sass
-const sass = require(`gulp-sass`)
+const sass = require('gulp-sass')
 // Sass - node_modulesからの@importをサポート
-const sassPackageImporter = require(`node-sass-package-importer`)
+const sassPackageImporter = require('node-sass-package-importer')
 // PostCSS
-const postcss = require(`gulp-postcss`)
+const postcss = require('gulp-postcss')
 // PostCSS - ベンダープレフィクス付与
-const autoprefixer = require(`autoprefixer`)
+const autoprefixer = require('autoprefixer')
 // CSS minify
-const cssnano = require(`gulp-cssnano`)
+const cssnano = require('gulp-cssnano')
 
 // ====
 // JSON
 // ====
 
 // JSON minify
-const jsonminify = require(`gulp-jsonminify`)
+const jsonminify = require('gulp-jsonminify')
 
 // ====
 // 画像
 // ====
 
 // 画像圧縮
-const imagemin = require(`gulp-imagemin`)
+const imagemin = require('gulp-imagemin')
 
 // =============================================================================
 // ビルドモード判定
 // =============================================================================
 
 let mode
-if (process.argv.slice(2)[1] === `production`) {
-  mode = `production`
+if (process.argv.slice(2)[1] === 'production') {
+  mode = 'production'
 } else {
-  mode = `development`
+  mode = 'development'
 }
 
 // =============================================================================
@@ -224,7 +224,7 @@ const buildHTML = cb => {
     // minify
     .pipe(
       gulpIf(
-        mode === `production`,
+        mode === 'production',
 
         // プロダクションビルド
         htmlmin({
@@ -254,7 +254,7 @@ const buildPug = cb => {
     // Pug
     .pipe(
       gulpIf(
-        mode === `production`,
+        mode === 'production',
 
         // プロダクションビルド
         pug(),
@@ -295,7 +295,7 @@ const buildCSS = cb => {
     // minify
     .pipe(
       gulpIf(
-        mode === `production`,
+        mode === 'production',
 
         // プロダクションビルド
         cssnano()
@@ -322,21 +322,21 @@ const buildSass = cb => {
     // Sass
     .pipe(
       gulpIf(
-        mode === `production`,
+        mode === 'production',
 
         // プロダクションビルド
         sass({
-          outputStyle: `compressed`,
+          outputStyle: 'compressed',
           importer: sassPackageImporter({
-            extensions: [`.css`, `.scss`]
+            extensions: ['.css', '.scss']
           })
         }),
 
         // 開発ビルド
         sass({
-          outputStyle: `expanded`,
+          outputStyle: 'expanded',
           importer: sassPackageImporter({
-            extensions: [`.css`, `.scss`]
+            extensions: ['.css', '.scss']
           })
         })
       )
@@ -371,7 +371,7 @@ const buildWebpack = cb => {
     // vinyl-named
     .pipe(
       vinylNamed(file => {
-        return file.relative.replace(/\.[^\.]+$/, '')
+        return file.relative.replace(/\.[^.]+$/, '')
       })
     )
 
@@ -476,7 +476,7 @@ const buildJSON = cb => {
     // minify
     .pipe(
       gulpIf(
-        mode === `production`,
+        mode === 'production',
 
         // プロダクションビルド
         jsonminify()
@@ -503,7 +503,7 @@ const buildImg = cb => {
     // 画像圧縮
     .pipe(
       gulpIf(
-        mode === `production`,
+        mode === 'production',
 
         // プロダクションビルド
         imagemin([
@@ -598,14 +598,14 @@ exports.default = series(
   ),
   watchRegist,
   localServer,
-  function GulpStarting() {
-    if (mode === `production`) {
-      console.log(`[Gulp] プロダクションビルド`)
+  function GulpStarting () {
+    if (mode === 'production') {
+      console.log('[Gulp] プロダクションビルド')
     } else {
-      console.log(`[Gulp] 開発ビルド`)
+      console.log('[Gulp] 開発ビルド')
     }
     console.log(
-      `[Gulp] 起動処理を完了しました。以後はファイル更新監視タスクが常駐します。終了するには【Ctrl + C】を入力してください。`
+      '[Gulp] 起動処理を完了しました。以後はファイル更新監視タスクが常駐します。終了するには【Ctrl + C】を入力してください。'
     )
   }
 )
