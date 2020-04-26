@@ -1,7 +1,7 @@
 /*
  * =============================================================================
  * [Gulp & webpack]
- * @update: 2019-11-29
+ * @update: 2020-04-24
  * @author: torosalmon
  * @twitter: https://twitter.com/trs_torosalmon
  * =============================================================================
@@ -43,7 +43,16 @@ const localServerBrowser = [
 // ==================
 
 // HTML
-const fileHTML = [`${srcDir}/**/!(_)*.html`]
+const fileHTML = [
+  `${srcDir}/**/!(_)*.html`,
+  `!${srcDir}/**/venders/**/*`, // [/venders/]以下を除外
+  `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
+  `!${srcDir}/**/wp-content/languages/**/*`,
+  `!${srcDir}/**/wp-content/plugins/**/*`,
+  `!${srcDir}/**/wp-content/upgrade/**/*`,
+  `!${srcDir}/**/wp-content/uploads/**/*`,
+  `!${srcDir}/**/wp-includes/**/*`
+]
 
 // Pug
 const filePug = [`${srcDir}/**/!(_)*.pug`]
@@ -52,23 +61,52 @@ const filePug = [`${srcDir}/**/!(_)*.pug`]
 const fileCSS = [
   `${srcDir}/**/!(_)*.css`,
   `!${srcDir}/**/*.min.css`, // [*.min.css]を除外
-  `!${srcDir}/**/venders/*.css`, // [/venders/]以下を除外
-  `!${srcDir}/**/wp-content/themes/**/style.css` // WordPressテーマファイルCSSを除外
+  `!${srcDir}/**/venders/**/*`, // [/venders/]以下を除外
+  `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
+  `!${srcDir}/**/wp-content/languages/**/*`,
+  `!${srcDir}/**/wp-content/plugins/**/*`,
+  `!${srcDir}/**/wp-content/upgrade/**/*`,
+  `!${srcDir}/**/wp-content/uploads/**/*`,
+  `!${srcDir}/**/wp-includes/**/*`
 ]
 
 // Sass
-const fileSass = [`${srcDir}/**/!(_)*.scss`]
+const fileSass = [
+  `${srcDir}/**/!(_)*.scss`,
+  `!${srcDir}/**/venders/**/*`, // [/venders/]以下を除外
+  `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
+  `!${srcDir}/**/wp-content/languages/**/*`,
+  `!${srcDir}/**/wp-content/plugins/**/*`,
+  `!${srcDir}/**/wp-content/upgrade/**/*`,
+  `!${srcDir}/**/wp-content/uploads/**/*`,
+  `!${srcDir}/**/wp-includes/**/*`
+]
 
 // JavaScript, TypeScript
 const fileJavaScriptTypeScript = [
   `${srcDir}/**/!(_)*.js`,
   `${srcDir}/**/!(_)*.ts`,
   `!${srcDir}/**/*.min.js`, // [*.min.js]を除外
-  `!${srcDir}/**/venders/*.js` // [/venders/]以下を除外
+  `!${srcDir}/**/venders/**/*`, // [/venders/]以下を除外
+  `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
+  `!${srcDir}/**/wp-content/languages/**/*`,
+  `!${srcDir}/**/wp-content/plugins/**/*`,
+  `!${srcDir}/**/wp-content/upgrade/**/*`,
+  `!${srcDir}/**/wp-content/uploads/**/*`,
+  `!${srcDir}/**/wp-includes/**/*`
 ]
 
 // JSON
-const fileJSON = [`${srcDir}/**/*.json`]
+const fileJSON = [
+  `${srcDir}/**/*.json`,
+  `!${srcDir}/**/venders/**/*`, // [/venders/]以下を除外
+  `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
+  `!${srcDir}/**/wp-content/languages/**/*`,
+  `!${srcDir}/**/wp-content/plugins/**/*`,
+  `!${srcDir}/**/wp-content/upgrade/**/*`,
+  `!${srcDir}/**/wp-content/uploads/**/*`,
+  `!${srcDir}/**/wp-includes/**/*`
+]
 
 // 画像
 const fileImg = [
@@ -76,7 +114,14 @@ const fileImg = [
   `${srcDir}/**/*.png`,
   `${srcDir}/**/*.jpg`,
   `${srcDir}/**/*.jpeg`,
-  `${srcDir}/**/*.gif`
+  `${srcDir}/**/*.gif`,
+  `!${srcDir}/**/venders/**/*`, // [/venders/]以下を除外
+  `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
+  `!${srcDir}/**/wp-content/languages/**/*`,
+  `!${srcDir}/**/wp-content/plugins/**/*`,
+  `!${srcDir}/**/wp-content/upgrade/**/*`,
+  `!${srcDir}/**/wp-content/uploads/**/*`,
+  `!${srcDir}/**/wp-includes/**/*`
 ]
 
 // ======================
@@ -85,9 +130,8 @@ const fileImg = [
 
 const fileCopy = [
   `${srcDir}/**/*.!(html|pug|css|scss|js|ts|json|svg|png|jpg|jpeg|gif)`, // ビルド対象ファイル以外の全ファイル
-  `${srcDir}/**/*.min.(css|js)`, // [.min.css][.min.js]
-  `${srcDir}/**/venders/*`, // [/venders/]ディレクトリ以下
-  `${srcDir}/**/wp-content/themes/**/style.css` // WordPressテーマファイルCSS
+  `${srcDir}/**/*.min.css`, // [*.min.css]
+  `${srcDir}/**/*.min.js` // [*.min.js]
 ]
 
 // =========================
