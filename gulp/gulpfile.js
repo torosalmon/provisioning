@@ -1,7 +1,7 @@
 /*
  * =============================================================================
  * [Gulp & webpack]
- * @update: 2020-04-24
+ * @update: 2020-06-05
  * @author: torosalmon
  * @twitter: https://twitter.com/trs_torosalmon
  * =============================================================================
@@ -49,6 +49,7 @@ const fileHTML = [
   `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
   `!${srcDir}/**/wp-content/languages/**/*`,
   `!${srcDir}/**/wp-content/plugins/**/*`,
+  `!${srcDir}/**/wp-content/themes/twenty*/**/*`,
   `!${srcDir}/**/wp-content/upgrade/**/*`,
   `!${srcDir}/**/wp-content/uploads/**/*`,
   `!${srcDir}/**/wp-includes/**/*`
@@ -65,6 +66,7 @@ const fileCSS = [
   `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
   `!${srcDir}/**/wp-content/languages/**/*`,
   `!${srcDir}/**/wp-content/plugins/**/*`,
+  `!${srcDir}/**/wp-content/themes/twenty*/**/*`,
   `!${srcDir}/**/wp-content/upgrade/**/*`,
   `!${srcDir}/**/wp-content/uploads/**/*`,
   `!${srcDir}/**/wp-includes/**/*`
@@ -77,6 +79,7 @@ const fileSass = [
   `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
   `!${srcDir}/**/wp-content/languages/**/*`,
   `!${srcDir}/**/wp-content/plugins/**/*`,
+  `!${srcDir}/**/wp-content/themes/twenty*/**/*`,
   `!${srcDir}/**/wp-content/upgrade/**/*`,
   `!${srcDir}/**/wp-content/uploads/**/*`,
   `!${srcDir}/**/wp-includes/**/*`
@@ -91,6 +94,7 @@ const fileJavaScriptTypeScript = [
   `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
   `!${srcDir}/**/wp-content/languages/**/*`,
   `!${srcDir}/**/wp-content/plugins/**/*`,
+  `!${srcDir}/**/wp-content/themes/twenty*/**/*`,
   `!${srcDir}/**/wp-content/upgrade/**/*`,
   `!${srcDir}/**/wp-content/uploads/**/*`,
   `!${srcDir}/**/wp-includes/**/*`
@@ -103,6 +107,7 @@ const fileJSON = [
   `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
   `!${srcDir}/**/wp-content/languages/**/*`,
   `!${srcDir}/**/wp-content/plugins/**/*`,
+  `!${srcDir}/**/wp-content/themes/twenty*/**/*`,
   `!${srcDir}/**/wp-content/upgrade/**/*`,
   `!${srcDir}/**/wp-content/uploads/**/*`,
   `!${srcDir}/**/wp-includes/**/*`
@@ -119,6 +124,7 @@ const fileImg = [
   `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
   `!${srcDir}/**/wp-content/languages/**/*`,
   `!${srcDir}/**/wp-content/plugins/**/*`,
+  `!${srcDir}/**/wp-content/themes/twenty*/**/*`,
   `!${srcDir}/**/wp-content/upgrade/**/*`,
   `!${srcDir}/**/wp-content/uploads/**/*`,
   `!${srcDir}/**/wp-includes/**/*`
@@ -129,7 +135,7 @@ const fileImg = [
 // ======================
 
 const fileCopy = [
-  `${srcDir}/**/*.!(html|pug|css|scss|js|ts|json|svg|png|jpg|jpeg|gif)`, // ビルド対象ファイル以外の全ファイル
+  `${srcDir}/**/*!(.html|.pug|.css|.scss|.js|.ts|.json|.svg|.png|.jpg|.jpeg|.gif)`, // ビルド対象ファイル以外の全ファイル
   `${srcDir}/**/*.min.css`, // [*.min.css]
   `${srcDir}/**/*.min.js` // [*.min.js]
 ]
@@ -211,6 +217,8 @@ const pug = require('gulp-pug')
 
 // Sass
 const sass = require('gulp-sass')
+// Sass コンパイラをdart-sassに指定
+sass.compiler = require('sass')
 // Sass - node_modulesからの@importをサポート
 const sassPackageImporter = require('node-sass-package-importer')
 // PostCSS
