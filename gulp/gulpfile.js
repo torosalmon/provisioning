@@ -1,7 +1,7 @@
 /*
  * =============================================================================
  * [Gulp & webpack]
- * @update: 2020-06-05
+ * @update: 2020-08-09
  * @author: torosalmon
  * @twitter: https://twitter.com/trs_torosalmon
  * =============================================================================
@@ -624,10 +624,6 @@ exports.default = series(
   watchRegist,
   localServer,
   function GulpStarting () {
-    console.log(' ---------------------------------------')
-    console.log(
-      '[' + '\u001b[34m' + 'Gulp' + '\u001b[0m' + '] 起動処理を完了しました。以後はファイル更新監視タスクが常駐します。終了するには【Ctrl + C】を入力してください。'
-    )
     console.log(' ---------------------------------------')
     if (mode === 'production') {
       console.log('[' + '\u001b[34m' + 'Gulp' + '\u001b[0m' + '] プロダクションビルド')

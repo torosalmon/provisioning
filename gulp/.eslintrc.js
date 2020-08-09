@@ -35,7 +35,7 @@ module.exports = {
     SharedArrayBuffer: 'readonly',
 
     // jQuery
-    '$': 'readonly'
+    $: 'readonly'
   },
 
   // ========
@@ -66,9 +66,9 @@ module.exports = {
     'no-use-before-define': [
       'error',
       {
-        'variables': false,
-        'functions': false,
-        'classes': false
+        variables: false,
+        functions: false,
+        classes: false
       }
     ]
   }

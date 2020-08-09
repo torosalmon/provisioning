@@ -32,7 +32,7 @@ module.exports = {
     'at-rule-no-unknown': null,
 
     // @から始まる記述への警告（SCSS）
-    "scss/at-rule-no-unknown": [
+    'scss/at-rule-no-unknown': [
       true, {
         // @use, @forward構文の使用を許可
         ignoreAtRules: ['use', 'forward']
