@@ -45,14 +45,7 @@ const localServerBrowser = [
 // HTML
 const fileHTML = [
   `${srcDir}/**/!(_)*.html`,
-  `!${srcDir}/**/venders/**/*`, // [/venders/]以下を除外
-  `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
-  `!${srcDir}/**/wp-content/languages/**/*`,
-  `!${srcDir}/**/wp-content/plugins/**/*`,
-  `!${srcDir}/**/wp-content/themes/twenty*/**/*`,
-  `!${srcDir}/**/wp-content/upgrade/**/*`,
-  `!${srcDir}/**/wp-content/uploads/**/*`,
-  `!${srcDir}/**/wp-includes/**/*`
+  `!${srcDir}/**/venders/**/*` // [/venders/]以下を除外
 ]
 
 // Pug
@@ -62,27 +55,13 @@ const filePug = [`${srcDir}/**/!(_)*.pug`]
 const fileCSS = [
   `${srcDir}/**/!(_)*.css`,
   `!${srcDir}/**/*.min.css`, // [*.min.css]を除外
-  `!${srcDir}/**/venders/**/*`, // [/venders/]以下を除外
-  `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
-  `!${srcDir}/**/wp-content/languages/**/*`,
-  `!${srcDir}/**/wp-content/plugins/**/*`,
-  `!${srcDir}/**/wp-content/themes/twenty*/**/*`,
-  `!${srcDir}/**/wp-content/upgrade/**/*`,
-  `!${srcDir}/**/wp-content/uploads/**/*`,
-  `!${srcDir}/**/wp-includes/**/*`
+  `!${srcDir}/**/venders/**/*` // [/venders/]以下を除外
 ]
 
 // Sass
 const fileSass = [
   `${srcDir}/**/!(_)*.scss`,
-  `!${srcDir}/**/venders/**/*`, // [/venders/]以下を除外
-  `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
-  `!${srcDir}/**/wp-content/languages/**/*`,
-  `!${srcDir}/**/wp-content/plugins/**/*`,
-  `!${srcDir}/**/wp-content/themes/twenty*/**/*`,
-  `!${srcDir}/**/wp-content/upgrade/**/*`,
-  `!${srcDir}/**/wp-content/uploads/**/*`,
-  `!${srcDir}/**/wp-includes/**/*`
+  `!${srcDir}/**/venders/**/*` // [/venders/]以下を除外
 ]
 
 // JavaScript, TypeScript
@@ -90,27 +69,13 @@ const fileJavaScriptTypeScript = [
   `${srcDir}/**/!(_)*.js`,
   `${srcDir}/**/!(_)*.ts`,
   `!${srcDir}/**/*.min.js`, // [*.min.js]を除外
-  `!${srcDir}/**/venders/**/*`, // [/venders/]以下を除外
-  `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
-  `!${srcDir}/**/wp-content/languages/**/*`,
-  `!${srcDir}/**/wp-content/plugins/**/*`,
-  `!${srcDir}/**/wp-content/themes/twenty*/**/*`,
-  `!${srcDir}/**/wp-content/upgrade/**/*`,
-  `!${srcDir}/**/wp-content/uploads/**/*`,
-  `!${srcDir}/**/wp-includes/**/*`
+  `!${srcDir}/**/venders/**/*` // [/venders/]以下を除外
 ]
 
 // JSON
 const fileJSON = [
   `${srcDir}/**/*.json`,
-  `!${srcDir}/**/venders/**/*`, // [/venders/]以下を除外
-  `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
-  `!${srcDir}/**/wp-content/languages/**/*`,
-  `!${srcDir}/**/wp-content/plugins/**/*`,
-  `!${srcDir}/**/wp-content/themes/twenty*/**/*`,
-  `!${srcDir}/**/wp-content/upgrade/**/*`,
-  `!${srcDir}/**/wp-content/uploads/**/*`,
-  `!${srcDir}/**/wp-includes/**/*`
+  `!${srcDir}/**/venders/**/*` // [/venders/]以下を除外
 ]
 
 // 画像
@@ -120,14 +85,7 @@ const fileImg = [
   `${srcDir}/**/*.jpg`,
   `${srcDir}/**/*.jpeg`,
   `${srcDir}/**/*.gif`,
-  `!${srcDir}/**/venders/**/*`, // [/venders/]以下を除外
-  `!${srcDir}/**/wp-admin/**/*`, // [WordPress]配下を除外（[/themes/]のみ有効）
-  `!${srcDir}/**/wp-content/languages/**/*`,
-  `!${srcDir}/**/wp-content/plugins/**/*`,
-  `!${srcDir}/**/wp-content/themes/twenty*/**/*`,
-  `!${srcDir}/**/wp-content/upgrade/**/*`,
-  `!${srcDir}/**/wp-content/uploads/**/*`,
-  `!${srcDir}/**/wp-includes/**/*`
+  `!${srcDir}/**/venders/**/*` // [/venders/]以下を除外
 ]
 
 // ======================
@@ -135,7 +93,7 @@ const fileImg = [
 // ======================
 
 const fileCopy = [
-  `${srcDir}/**/*!(.html|.pug|.css|.scss|.js|.ts|.json|.svg|.png|.jpg|.jpeg|.gif)`, // ビルド対象ファイル以外の全ファイル
+  `${srcDir}/**/*.!(html|pug|css|scss|js|ts|json|svg|png|jpg|jpeg|gif)`, // ビルド対象ファイル以外の全ファイル
   `${srcDir}/**/*.min.css`, // [*.min.css]
   `${srcDir}/**/*.min.js` // [*.min.js]
 ]
@@ -153,7 +111,22 @@ const fileIgnore = [
   `!${srcDir}/**/.DS_Store`,
   `!${srcDir}/**/_notes/*`,
   `!${srcDir}/**/dwsync.xml`,
-  `!${srcDir}/**/*.src*`
+  `!${srcDir}/**/@types/*`,
+  `!${srcDir}/**/*.src*`,
+
+  // [WordPress]配下を除外
+  // [themes]の[twenty-xx]以外のテーマは除外ファイルに含まず、Gulpで処理される
+  `!${srcDir}/**/wp/*`,
+  `!${srcDir}/**/wordpress/*`,
+  `!${srcDir}/**/wp-admin/**/*`,
+  `!${srcDir}/**/wp-content/languages/**/*`,
+  `!${srcDir}/**/wp-content/plugins/**/*`,
+  `!${srcDir}/**/wp-content/*`,
+  `!${srcDir}/**/wp-content/themes/*`,
+  `!${srcDir}/**/wp-content/themes/twenty*/**/*`,
+  `!${srcDir}/**/wp-content/upgrade/**/*`,
+  `!${srcDir}/**/wp-content/uploads/**/*`,
+  `!${srcDir}/**/wp-includes/**/*`
 ]
 
 // 除外ファイルと配列を結合
@@ -651,13 +624,16 @@ exports.default = series(
   watchRegist,
   localServer,
   function GulpStarting () {
-    if (mode === 'production') {
-      console.log('[Gulp] プロダクションビルド')
-    } else {
-      console.log('[Gulp] 開発ビルド')
-    }
+    console.log(' ---------------------------------------')
     console.log(
-      '[Gulp] 起動処理を完了しました。以後はファイル更新監視タスクが常駐します。終了するには【Ctrl + C】を入力してください。'
+      '[' + '\u001b[34m' + 'Gulp' + '\u001b[0m' + '] 起動処理を完了しました。以後はファイル更新監視タスクが常駐します。終了するには【Ctrl + C】を入力してください。'
     )
+    console.log(' ---------------------------------------')
+    if (mode === 'production') {
+      console.log('[' + '\u001b[34m' + 'Gulp' + '\u001b[0m' + '] プロダクションビルド')
+    } else {
+      console.log('[' + '\u001b[34m' + 'Gulp' + '\u001b[0m' + '] 開発ビルド')
+    }
+    console.log(' ---------------------------------------')
   }
 )
