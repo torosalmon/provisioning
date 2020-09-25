@@ -312,7 +312,7 @@ const buildCSS = cb => {
     .pipe(
       postcss([
         autoprefixer({
-          grid: true // display: grid;のIEサポート
+          grid: 'autoplace' // display: grid;のIEサポート
         })
       ])
     )
@@ -371,7 +371,7 @@ const buildSass = cb => {
     .pipe(
       postcss([
         autoprefixer({
-          grid: true // display: grid;のIEサポート
+          grid: 'autoplace' // display: grid;のIEサポート
         })
       ])
     )
